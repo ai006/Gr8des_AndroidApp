@@ -1,0 +1,23 @@
+{
+	"users": [
+		{
+			"id": "1087",
+			"name": "Abhishek Saini",
+			"email": "info@abhiandroid.com",
+			"gender" : "male",
+			"contact": {
+				"mobile": "B "
+
+			}
+		},
+		{
+			"id": "1088",
+			"name": "Gourav",
+			"email": "gourav9188@gmail.com",
+			"gender" : "male",
+			"contact": {
+				"mobile": "A"
+			}
+		}
+	]
+}

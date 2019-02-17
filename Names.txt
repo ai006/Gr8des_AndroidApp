@@ -1,0 +1,44 @@
+dash1 -dash1B
+dash2 -dash2B
+dash3 - dash3B
+dash4 - dash4B
+dash5 - dash5B
+save - saveB
+nameCourse - nameCourseB
+course - courseB
+rename - renameB
+weight - weightB
+score - scoreB
+firstWeightPercentage - firstWeightPercentageB
+firstWeightName - firstWeightNameB
+firstScore - firstScoreB
+firstOutOf - firstOutOfB
+SecondWeightPercentage - SecondWeightPercentageB
+secondWeightName - secondWeightNameB
+thirdWeightName - thirdWeightNameB
+SecondScore - SecondScoreB
+secondOutOf - secondOutOfB
+fourthWeightName - fourthWeightNameB
+thirdScore - thirdScoreB
+thirdOutOf - thirdOutOfB
+thirdWeight - thirdWeightB
+fourthScore - fourthScoreB
+fourthOutOf - fourthOutOfB
+fourthWeight - fourthWeightB
+fifthWeightName - fifthWeightNameB
+fifthScore - fifthScoreB
+fifthOutOf - fifthOutOfB
+fifthWeight - fifthWeightB
+grade - gradeB
+overall - overallB
+overallPercentage - overallPercentageB
+letterGrade - letterGradeB
+
+
+
+
+
+
+
+
+

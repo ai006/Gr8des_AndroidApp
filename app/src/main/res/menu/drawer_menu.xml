@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/NavCourse1"
+            android:icon="@drawable/ic_book"
+            android:title="Course_1"
+
+            />
+        <item
+            android:id="@+id/NavCourse2"
+            android:icon="@drawable/ic_book_blue"
+            android:title="Course_2" />
+        <item
+            android:id="@+id/NavCourse3"
+            android:icon="@drawable/ic_book_green"
+            android:title="Course_3" />
+        <item
+            android:id="@+id/NavCourse4"
+            android:icon="@drawable/ic_book_purple"
+            android:title="Course_4" />
+        <item
+            android:id="@+id/NavCourse5"
+            android:icon="@drawable/ic_book_red"
+            android:title="Course_5" />
+    </group>
+
+    <item android:title="Confinguration">
+        <menu>
+            <item
+                android:id="@+id/reset"
+                android:icon="@drawable/ic_add"
+                android:title="Reset saved data" />
+
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
+        </menu>
+
+    </item>
+
+
+</menu>

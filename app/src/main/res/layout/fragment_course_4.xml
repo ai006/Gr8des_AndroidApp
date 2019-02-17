@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/saveTD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/dash1D"
+        android:layout_alignParentBottom="true"
+        android:text="Save"
+        android:textColor="@color/colorBrow" />
+
+    <TextView
+        android:id="@+id/clearTD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/saveTD"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="clear"
+        android:textColor="@color/colorBrow" />
+
+    <TextView
+        android:id="@+id/addTD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/clearTD"
+        android:text="add"
+        android:textColor="@color/colorBrow" />
+
+    <TextView
+        android:id="@+id/removeTD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/overallD"
+        android:text="remove"
+        android:textColor="@color/colorBrow" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="77dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/removeD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:tint="@android:color/white"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_remove"
+            tools:ignore="VectorDrawableCompat" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:tint="@android:color/white"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_add_menu"
+            tools:ignore="VectorDrawableCompat" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/clearD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:tint="@android:color/white"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_clear"
+            tools:ignore="VectorDrawableCompat" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/storeD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:tint="@android:color/white"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_save"
+            tools:ignore="VectorDrawableCompat" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/MainMenuD"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:onClick="SaveCourse"
+            android:tint="@android:color/white"
+            app:fabSize="normal"
+            app:rippleColor="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/ic_add"
+            tools:ignore="VectorDrawableCompat" />
+
+    </LinearLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/nameCourseD"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/courseD"
+        android:layout_centerHorizontal="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:errorEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Course Name"
+            android:inputType="text" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/courseD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="60dp" />
+
+
+
+    <Button
+        android:id="@+id/renameD"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/nameCourseD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:background="@drawable/ic_return"
+        android:onClick="RenameCourse"
+        android:visibility="visible"
+        android:backgroundTint="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/weightD"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/firstWeightPercentageD"
+        android:layout_marginEnd="7dp"
+        android:layout_toStartOf="@+id/nameCourseD"
+        android:text="Weight"
+        android:textColor="@color/colorGreen"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/firstScoreD"
+        android:layout_centerHorizontal="true"
+        android:text="%"
+        android:textColor="@color/colorGreen"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/scoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/firstScoreD"
+        android:layout_alignTop="@+id/weightD"
+        android:text="Score"
+        android:textColor="@color/colorGreen"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/firstWeightPercentageD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/firstWeightNameD"
+        android:layout_centerHorizontal="true"
+        android:hint="30%"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/firstWeightNameD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp"
+        android:hint="Final exam"
+        android:textColor="@color/colorBlack"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/firstScoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameCourseD"
+        android:layout_alignTop="@+id/dash1D"
+        android:hint="89"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <TextView
+        android:id="@+id/dash1D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/firstOutOfD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/firstOutOfD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dash2D"
+        android:layout_toEndOf="@+id/scoreD"
+        android:hint="100"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+
+    <EditText
+        android:id="@+id/SecondWeightPercentageD"
+        android:layout_width="36dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstWeightPercentageD"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/secondWeightNameD"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/thirdWeightNameD"
+        android:textColor="@color/colorBlack"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/SecondScoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameCourseD"
+        android:layout_below="@+id/firstScoreD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <TextView
+        android:id="@+id/dash2D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/secondOutOfD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/secondOutOfD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dash3D"
+        android:layout_toEndOf="@+id/scoreD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/thirdWeightNameD"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/fourthWeightNameD"
+        android:textColor="@color/colorBlack"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/thirdScoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/secondWeightNameD"
+        android:layout_alignEnd="@+id/nameCourseD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <TextView
+        android:id="@+id/dash3D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/secondWeightNameD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/thirdOutOfD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SecondWeightPercentageD"
+        android:layout_toEndOf="@+id/scoreD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/thirdWeightD"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SecondWeightPercentageD"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/fourthWeightNameD"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/firstWeightPercentageD"
+        android:textColor="@color/colorBlack"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/fourthScoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameCourseD"
+        android:layout_alignTop="@+id/secondWeightNameD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <TextView
+        android:id="@+id/dash4D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/secondWeightNameD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/fourthOutOfD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/secondWeightNameD"
+        android:layout_toEndOf="@+id/scoreD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/fourthWeightD"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/secondWeightNameD"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+
+    <EditText
+        android:id="@+id/fifthWeightNameD"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/fourthWeightD"
+        android:textColor="@color/colorBlack"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/fifthScoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameCourseD"
+        android:layout_alignTop="@+id/fifthWeightNameD"
+        android:lines="1"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <TextView
+        android:id="@+id/dash5D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fifthWeightNameD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/fifthOutOfD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fifthWeightNameD"
+        android:layout_toEndOf="@+id/scoreD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/fifthWeightD"
+        android:layout_width="41dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fourthWeightD"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"
+        android:textColorHighlight="#7cff88" />
+
+    <EditText
+        android:id="@+id/sixthWeightNameD"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorBlack"
+        android:layout_below="@+id/fifthWeightNameD"
+        />
+
+    <EditText
+        android:id="@+id/sixthWeightPercentageD"
+        android:layout_width="41dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fifthWeightNameD"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"/>
+
+    <EditText
+        android:id="@+id/sixthScoreD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nameCourseD"
+        android:layout_below="@+id/fifthWeightNameD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"/>
+
+    <TextView
+        android:id="@+id/dash6D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fifthWeightNameD"
+        android:layout_toEndOf="@+id/nameCourseD"
+        android:text="/"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/sixthOutOfD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fifthWeightNameD"
+        android:layout_toEndOf="@+id/scoreD"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorBlack"/>
+
+
+    <TextView
+        android:id="@+id/gradeD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="109dp"
+        android:text="Grade :"
+        android:textColor="@color/colorAccent"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/letterGradeD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameCourseD"
+        android:layout_alignTop="@+id/gradeD"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/colorBrow"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/overallD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/gradeD"
+        android:layout_centerHorizontal="true"
+        android:text="Overall % :"
+        android:textColor="@color/colorAccent"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/overallPercentageD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/thirdScoreD"
+        android:layout_alignTop="@+id/gradeD"
+        android:lines="1"
+        android:maxLines="1"
+        android:textSize="25dp"
+        android:textColor="@color/colorBrow"/>
+
+
+</RelativeLayout>
