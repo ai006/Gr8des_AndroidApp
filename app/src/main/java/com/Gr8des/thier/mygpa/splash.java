@@ -1,4 +1,4 @@
-package com.example.thier.mygpa;
+package com.Gr8des.thier.mygpa;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

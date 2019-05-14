@@ -1,4 +1,4 @@
-package com.example.thier.mygpa;
+package com.Gr8des.thier.mygpa;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -15,12 +15,12 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class Gr8desInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.thier.mygpa", appContext.getPackageName());
+        assertEquals("com.Gr8des.thier.mygpa", appContext.getPackageName());
     }
 }

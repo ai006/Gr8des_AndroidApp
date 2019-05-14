@@ -11,9 +11,10 @@
         android:id="@+id/saveTB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/dash1B"
         android:layout_alignParentBottom="true"
-        android:text="Save"
+        android:layout_below="@id/storeB"
+        android:layout_alignStart="@+id/storeB"
+        android:text=" Save "
         android:textColor="@color/colorBrow" />
 
     <TextView
@@ -21,10 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/saveTB"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:text="clear"
+        android:layout_below="@+id/clearB"
+        android:layout_alignStart="@+id/clearB"
+        android:text=" clear "
         android:textColor="@color/colorBrow" />
 
     <TextView
@@ -32,8 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/clearTB"
-        android:text="add"
+        android:layout_below="@+id/addB"
+        android:layout_alignStart="@+id/addB"
+        android:text="  add"
         android:textColor="@color/colorBrow" />
 
     <TextView
@@ -41,73 +42,81 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/firstWeightPercentageB"
+        android:layout_below="@+id/removeB"
+        android:layout_alignEnd="@+id/removeB"
         android:text="remove"
         android:textColor="@color/colorBrow" />
 
 
-    <LinearLayout
-        android:layout_width="266dp"
-        android:layout_height="65dp"
+    <!-- <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:orientation="horizontal"
-        android:id="@+id/linear">
+        android:orientation="horizontal">-->
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/removeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/addB"
+        android:layout_marginRight="20dp"
+        android:layout_alignBottom="@+id/addB"
+        android:tint="@android:color/white"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_remove"
+        tools:ignore="VectorDrawableCompat" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/removeB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:tint="@android:color/white"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/ic_remove"
-            tools:ignore="VectorDrawableCompat" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/clearB"
+        android:layout_marginRight="20dp"
+        android:layout_alignBottom="@+id/clearB"
+        android:tint="@android:color/white"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_add_menu"
+        tools:ignore="VectorDrawableCompat" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/addB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:tint="@android:color/white"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/ic_add_menu"
-            tools:ignore="VectorDrawableCompat" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/clearB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/storeB"
+        android:layout_marginRight="20dp"
+        android:layout_alignBottom="@+id/storeB"
+        android:tint="@android:color/white"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_clear"
+        tools:ignore="VectorDrawableCompat" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/clearB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:tint="@android:color/white"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/ic_clear"
-            tools:ignore="VectorDrawableCompat" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/storeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/MainMenuB"
+        android:layout_toLeftOf="@+id/MainMenuB"
+        android:layout_marginRight="20dp"
+        android:tint="@android:color/white"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_save"
+        tools:ignore="VectorDrawableCompat" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/storeB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:tint="@android:color/white"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/ic_save"
-            tools:ignore="VectorDrawableCompat" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/MainMenuB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_toEndOf="@+id/scoreB"
+        android:onClick="SaveCourse"
+        android:tint="@android:color/white"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorPrimaryDark"
+        app:srcCompat="@drawable/ic_add"
+        tools:ignore="VectorDrawableCompat" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/MainMenuB"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="4dp"
-            android:onClick="SaveCourse"
-            android:tint="@android:color/white"
-            app:fabSize="normal"
-            app:rippleColor="@color/colorPrimaryDark"
-            app:srcCompat="@drawable/ic_add"
-            tools:ignore="VectorDrawableCompat" />
-
-    </LinearLayout>
 
 
 
@@ -125,7 +134,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Enter Course Name"
-            android:inputType="text" />
+            android:inputType="text"
+            android:maxLength="13"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -206,7 +216,8 @@
         android:textColor="@color/colorBlack"
         android:lines="1"
         android:maxLines="1"
-        android:textColorHighlight="#7cff88" />
+        android:textColorHighlight="#7cff88"
+        android:maxLength="17"/>
 
     <EditText
         android:id="@+id/firstScoreB"
@@ -266,6 +277,7 @@
         android:textColor="@color/colorBlack"
         android:lines="1"
         android:maxLines="1"
+        android:maxLength="17"
         android:textColorHighlight="#7cff88" />
 
     <EditText
@@ -311,7 +323,8 @@
         android:textColor="@color/colorBlack"
         android:lines="1"
         android:maxLines="1"
-        android:textColorHighlight="#7cff88" />
+        android:textColorHighlight="#7cff88"
+        android:maxLength="17"/>
 
     <EditText
         android:id="@+id/thirdScoreB"
@@ -368,7 +381,8 @@
         android:textColor="@color/colorBlack"
         android:lines="1"
         android:maxLines="1"
-        android:textColorHighlight="#7cff88" />
+        android:textColorHighlight="#7cff88"
+        android:maxLength="17"/>
 
     <EditText
         android:id="@+id/fourthScoreB"
@@ -426,6 +440,7 @@
         android:textColor="@color/colorBlack"
         android:lines="1"
         android:maxLines="1"
+        android:maxLength="17"
         android:textColorHighlight="#7cff88" />
 
     <EditText
@@ -481,6 +496,9 @@
         android:layout_alignParentStart="true"
         android:textColor="@color/colorBlack"
         android:layout_below="@+id/fifthWeightNameB"
+        android:lines="1"
+        android:maxLines="1"
+        android:maxLength="17"
         />
 
     <EditText

@@ -1,13 +1,12 @@
-package com.example.thier.mygpa;
+
+package com.Gr8des.thier.mygpa;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -30,7 +29,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Course_1 extends Fragment implements View.OnClickListener {
+public class Course_2 extends Fragment implements View.OnClickListener {
 
     private TextInputLayout courseName;
     private FloatingActionButton fabMain,fabStore,fabRemove,fabAdd,fabClear;
@@ -43,7 +42,6 @@ public class Course_1 extends Fragment implements View.OnClickListener {
 
     private double finalScore = 0;
     private double finalWeight = 1;
-
 
     //removing and adding course tracker
     private int selector = 6;
@@ -100,6 +98,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
     OvershootInterpolator interpolator = new OvershootInterpolator();
 
 
+
     //boolean to check if there is saved json
     private boolean isJsonSaved;
 
@@ -108,12 +107,12 @@ public class Course_1 extends Fragment implements View.OnClickListener {
 
     private static final String KEY_COURSE_NAME = "course_key";
 
-    private Course1Listener listener;
+    private Course2Listener listener;
 
 
     String getArgument;//String containing all saved json
 
-    public Course_1()
+    public Course_2()
     {
         this.isJsonSaved = false;
     }
@@ -123,136 +122,131 @@ public class Course_1 extends Fragment implements View.OnClickListener {
     JSONObject jsonObject; //json for storing info
 
     //communication between fragment and activity
-    public interface Course1Listener{
-        void onInputCourse1Sent(JSONObject input);
-        void renameDrawer(String input);
+    public interface Course2Listener{
+        void onInputCourse2Sent(JSONObject input);
+        void renameDrawer2(String input);
     }
 
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState)
     {
-        view =  inflater.inflate(R.layout.fragment_course_1,container,false);
+        view =  inflater.inflate(R.layout.fragment_course_2,container,false);
 
-       jsonData = new HashMap<>();//instantiation of hashamp
+        jsonData = new HashMap<>();//instantiation of hashamp
 
 
         //check if something was sent from activity
         if(getArguments() != null)
         {
             this.isJsonSaved = true;
-            getArgument = getArguments().getString("course1");
+            getArgument = getArguments().getString("course2");
             try {
-                 storedData = new JSONObject(getArgument);
+                storedData = new JSONObject(getArgument);
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
 
-
-        text1 = view.findViewById(R.id.saveT);
-        text2 = view.findViewById(R.id.clearT);
-        text4 = view.findViewById(R.id.removeT);
-        text3 = view.findViewById(R.id.addT);
+        text1 = view.findViewById(R.id.saveTB);
+        text2 = view.findViewById(R.id.clearTB);
+        text4 = view.findViewById(R.id.removeTB);
+        text3 = view.findViewById(R.id.addTB);
         text1.setVisibility(View.INVISIBLE);
         text2.setVisibility(View.INVISIBLE);
         text3.setVisibility(View.INVISIBLE);
         text4.setVisibility(View.INVISIBLE);
-
-        courseName = view.findViewById(R.id.nameCourse);
+        courseName = view.findViewById(R.id.nameCourseB);
         fillTextInputLayout(courseName,"courseName");
-        button =  view.findViewById(R.id.rename);
-        textView = view.findViewById(R.id.course);                              //show the letter grade
+        button =  view.findViewById(R.id.renameB);
+        textView = view.findViewById(R.id.courseB);                              //show the letter grade
         fillTextView(textView,"CourseName");
         button.setOnClickListener(this);
-        overallPercentage = view.findViewById(R.id.overallPercentage);          //show overall percentage
+        overallPercentage = view.findViewById(R.id.overallPercentageB);          //show overall percentage
         fillTextView(overallPercentage,"overallPercentage");
 
 
 
 
+
         //EditText 1st weight
-        firstWeightName = view.findViewById(R.id.firstWeightName);
+        firstWeightName = view.findViewById(R.id.firstWeightNameB);
         fillCourseChar(firstWeightName,"firstWeightName");
-        firstWeightPercentage = view.findViewById(R.id.firstWeightPercentage);
+        firstWeightPercentage = view.findViewById(R.id.firstWeightPercentageB);
         fillCourseInt(firstWeightPercentage,"firstWeightPercentage");
-        firstScore = view.findViewById(R.id.firstScore);
+        firstScore = view.findViewById(R.id.firstScoreB);
         fillCourseInt(firstScore,"firstScore");
-        firstOutOf = view.findViewById(R.id.firstOutOf);
+        firstOutOf = view.findViewById(R.id.firstOutOfB);
         fillCourseInt(firstOutOf,"firstOutOf");
 
 
         //EditText 2nd weight
-        SecondWeightName = view.findViewById(R.id.fourthWeightName);
+        SecondWeightName = view.findViewById(R.id.fourthWeightNameB);
         fillCourseChar(SecondWeightName,"SecondWeightName");
-        SecondWeightPercentage = view.findViewById(R.id.SecondWeightPercentage);
+        SecondWeightPercentage = view.findViewById(R.id.SecondWeightPercentageB);
         fillCourseInt(SecondWeightPercentage,"SecondWeightPercentage");
-        SecondScore = view.findViewById(R.id.SecondScore);
+        SecondScore = view.findViewById(R.id.SecondScoreB);
         fillCourseInt(SecondScore,"SecondScore");
-        SecondOutOf = view.findViewById(R.id.secondOutOf);
+        SecondOutOf = view.findViewById(R.id.secondOutOfB);
         fillCourseInt(SecondOutOf,"SecondOutOf");
 
         //EditText 3rd weight
-        ThirdWeightName = view.findViewById(R.id.thirdWeightName);
+        ThirdWeightName = view.findViewById(R.id.thirdWeightNameB);
         fillCourseChar(ThirdWeightName,"ThirdWeightName");
-        ThirdWeightPercentage = view.findViewById(R.id.thirdWeight);
+        ThirdWeightPercentage = view.findViewById(R.id.thirdWeightB);
         fillCourseInt(ThirdWeightPercentage,"ThirdWeightPercentage");
-        ThirdScore = view.findViewById(R.id.thirdScore);
+        ThirdScore = view.findViewById(R.id.thirdScoreB);
         fillCourseInt(ThirdScore,"ThirdScore");
-        ThirdOutOf = view.findViewById(R.id.thirdOutOf);
+        ThirdOutOf = view.findViewById(R.id.thirdOutOfB);
         fillCourseInt(ThirdOutOf,"ThirdOutOf");
 
         //EditText 4th weight
-        FourthWeightName = view.findViewById(R.id.secondWeightName);
+        FourthWeightName = view.findViewById(R.id.secondWeightNameB);
         fillCourseChar(FourthWeightName,"FourthWeightName");
-        FourthWeightPercentage = view.findViewById(R.id.fourthWeight);
+        FourthWeightPercentage = view.findViewById(R.id.fourthWeightB);
         fillCourseInt(FourthWeightPercentage,"FourthWeightPercentage");
-        FourthScore = view.findViewById(R.id.fourthScore);
+        FourthScore = view.findViewById(R.id.fourthScoreB);
         fillCourseInt(FourthScore,"FourthScore");
-        FourthOutOf = view.findViewById(R.id.fourthOutOf);
+        FourthOutOf = view.findViewById(R.id.fourthOutOfB);
         fillCourseInt(FourthOutOf,"FourthOutOf");
 
         //EditText 5th weight
-        FifthWeightName = view.findViewById(R.id.fifthWeightName);
+        FifthWeightName = view.findViewById(R.id.fifthWeightNameB);
         fillCourseChar(FifthWeightName,"FifthWeightName");
-        FifthWeightPercentage = view.findViewById(R.id.fifthWeight);
+        FifthWeightPercentage = view.findViewById(R.id.fifthWeightB);
         fillCourseInt(FifthWeightPercentage,"FifthWeightPercentage");
-        FifthScore = view.findViewById(R.id.fifthScore);
+        FifthScore = view.findViewById(R.id.fifthScoreB);
         fillCourseInt(FifthScore,"FifthScore");
-        FifthOutOf = view.findViewById(R.id.fifthOutOf);
+        FifthOutOf = view.findViewById(R.id.fifthOutOfB);
         fillCourseInt(FifthOutOf,"FifthOutOf");
 
         //EditText 6th weight
-        SixthWeightName = view.findViewById(R.id.sixthWeightName);
+        SixthWeightName = view.findViewById(R.id.sixthWeightNameB);
         fillCourseChar(SixthWeightName,"SixthWeightName");
-        SixthWeightPercentage = view.findViewById(R.id.sixthWeightPercentage);
+        SixthWeightPercentage = view.findViewById(R.id.sixthWeightPercentageB);
         fillCourseInt(SixthWeightPercentage,"SixthWeightPercentage");
-        SixthScore = view.findViewById(R.id.sixthScore);
+        SixthScore = view.findViewById(R.id.sixthScoreB);
         fillCourseInt(SixthScore,"SixthScore");
-        SixthOutOf = view.findViewById(R.id.sixthOutOf);
+        SixthOutOf = view.findViewById(R.id.sixthOutOfB);
         fillCourseInt(SixthOutOf,"SixthOutOf");
 
-
         //The dashes for removing and adding
-        dash1 = view.findViewById(R.id.dash1);
-        dash2 = view.findViewById(R.id.dash2);
-        dash3 = view.findViewById(R.id.dash3);
-        dash4 = view.findViewById(R.id.dash4);
-        dash5 = view.findViewById(R.id.dash5);
-        dash6 = view.findViewById(R.id.dash6);
-
+        dash1 = view.findViewById(R.id.dash1B);
+        dash2 = view.findViewById(R.id.dash2B);
+        dash3 = view.findViewById(R.id.dash3B);
+        dash4 = view.findViewById(R.id.dash4B);
+        dash5 = view.findViewById(R.id.dash5B);
+        dash6 = view.findViewById(R.id.dash6B);
 
         //TextView
-        score = view.findViewById(R.id.score);
-        letterGrade = view.findViewById(R.id.letterGrade);
+        score = view.findViewById(R.id.scoreB);
+        letterGrade = view.findViewById(R.id.letterGradeB);
         fillTextView(letterGrade,"letterGrade");
-        grade = view.findViewById(R.id.grade);
-        weight = view.findViewById(R.id.weight);
+        grade = view.findViewById(R.id.gradeB);
+        weight = view.findViewById(R.id.weightB);
 
         //the number of courses
         RemoveOrAdd("selector");
-
-        //calculateGrade(view);
 
         //first grade
         firstScore.addTextChangedListener(new TextWatcher() {
@@ -274,8 +268,8 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 {
                     score1Grade = Integer.parseInt(temp);
                     jsonData.put("firstScore",Double.toString(score1Grade));
-                }
-                score1 = score1Percentage * (score1Grade/score1OutOf);
+                    score1 = score1Percentage * (score1Grade/score1OutOf);
+                }else score1Grade = 0;
                 calculateGrade(view);
             }
         });
@@ -291,9 +285,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()) {
                     score1Percentage = Integer.parseInt(temp);
                     jsonData.put("firstWeightPercentage",Double.toString(score1Percentage));
-                }
-                score1 = score1Percentage * (score1Grade/score1OutOf);
-                finalWeight = 0;
+                    score1 = score1Percentage * (score1Grade/score1OutOf);
+                    finalWeight = 0;
+                }else score1Percentage = 0;
+
                 calculateGrade(view);
             }
 
@@ -317,8 +312,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()) {
                     score1OutOf = Integer.parseInt(temp);
                     jsonData.put("firstOutOf",Double.toString(score1OutOf));
-                }
-                score1 = score1Percentage * (score1Grade/score1OutOf);
+                    score1 = score1Percentage * (score1Grade/score1OutOf);
+                }else score1OutOf = 0;
+
                 calculateGrade(view);
 
             }
@@ -368,8 +364,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()) {
                     score2Grade = Integer.parseInt(temp);
                     jsonData.put("SecondScore",Double.toString(score2Grade));
-                }
-                score2 = score2Percentage * (score2Grade/score2OutOf);
+                    score2 = score2Percentage * (score2Grade/score2OutOf);
+                }else score2Grade = 0;
+
                 calculateGrade(view);
 
             }
@@ -386,9 +383,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score2Percentage = Integer.parseInt(temp);
                     jsonData.put("SecondWeightPercentage",Double.toString(score2Percentage));
-                }
+                    score2 = score2Percentage * (score2Grade/score2OutOf);
+                }else score2Percentage = 0;
 
-                score2 = score2Percentage * (score2Grade/score2OutOf);
+
                 calculateGrade(view);
             }
 
@@ -410,8 +408,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score2OutOf = Integer.parseInt(temp);
                     jsonData.put("SecondOutOf",Double.toString(score2OutOf));
-                }
-                score2 = score2Percentage * (score2Grade/score2OutOf);
+                    score2 = score2Percentage * (score2Grade/score2OutOf);
+                }else score2OutOf = 0;
+
                 calculateGrade(view);
             }
 
@@ -461,8 +460,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 {
                     score3Grade = Integer.parseInt(temp);
                     jsonData.put("ThirdScore",Double.toString(score3Grade));
-                }
-                score3 = score3Percentage * (score3Grade/score3OutOf);
+                    score3 = score3Percentage * (score3Grade/score3OutOf);
+                }else score3Grade = 0;
+
                 calculateGrade(view);
 
             }
@@ -479,8 +479,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score3Percentage = Integer.parseInt(temp);
                     jsonData.put("ThirdWeightPercentage",Double.toString(score3Percentage));
-                }
-                score3 = score3Percentage * (score3Grade/score3OutOf);
+                    score3 = score3Percentage * (score3Grade/score3OutOf);
+                }else score3Percentage  = 0;
+
                 calculateGrade(view);
             }
 
@@ -503,8 +504,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 {
                     score3OutOf = Integer.parseInt(temp);
                     jsonData.put("ThirdOutOf",Double.toString(score3OutOf));
-                }
-                score3 = score3Percentage * (score3Grade/score3OutOf);
+                    score3 = score3Percentage * (score3Grade/score3OutOf);
+                }else score3OutOf = 0;
+
                 calculateGrade(view);
             }
 
@@ -549,11 +551,12 @@ public class Course_1 extends Fragment implements View.OnClickListener {
             @Override
             public void afterTextChanged(Editable editable) {
                 String temp = editable.toString();
-                if(!temp.isEmpty()){
+                if(!temp.isEmpty()) {
                     score4Grade = Integer.parseInt(temp);
-                    jsonData.put("FourthScore",Double.toString(score4Grade));
-                }
-                score4 = score4Percentage * (score4Grade/score4OutOf);
+                    jsonData.put("FourthScore", Double.toString(score4Grade));
+                    score4 = score4Percentage * (score4Grade / score4OutOf);
+                }else score4Grade = 0;
+
                 calculateGrade(view);
 
             }
@@ -570,8 +573,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score4Percentage = Integer.parseInt(temp);
                     jsonData.put("FourthWeightPercentage",Double.toString(score4Percentage));
-                }
-                score4 = score4Percentage * (score4Grade/score4OutOf);
+                    score4 = score4Percentage * (score4Grade/score4OutOf);
+                }else score4Percentage = 0;
+
                 calculateGrade(view);
             }
 
@@ -593,9 +597,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score4OutOf = Integer.parseInt(temp);
                     jsonData.put("FourthOutOf",Double.toString(score4OutOf));
+                    score4 = score4Percentage * (score4Grade/score4OutOf);
+                }else score4OutOf = 0;
 
-                }
-                score4 = score4Percentage * (score4Grade/score4OutOf);
                 calculateGrade(view);
             }
 
@@ -644,8 +648,9 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score5Grade = Integer.parseInt(temp);
                     jsonData.put("FifthScore",Double.toString(score5Grade));
-                }
-                score5 = score5Percentage * (score5Grade/score5OutOf);
+                    score5 = score5Percentage * (score5Grade/score5OutOf);
+                }else score5Grade = 0;
+
                 calculateGrade(view);
 
             }
@@ -662,10 +667,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score5Percentage = Integer.parseInt(temp);
                     jsonData.put("FifthWeightPercentage",Double.toString(score5Percentage));
+                    score5 = score5Percentage * (score5Grade/score5OutOf);
+                }else score5Percentage = 0;
 
-                }
 
-                score5 = score5Percentage * (score5Grade/score5OutOf);
                 calculateGrade(view);
             }
 
@@ -687,9 +692,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score5OutOf = Integer.parseInt(temp);
                     jsonData.put("FifthOutOf",Double.toString(score5OutOf));
-                }
+                    score5 = score5Percentage * (score5Grade/score5OutOf);
+                }else score5OutOf = 0;
 
-                score5 = score5Percentage * (score5Grade/score5OutOf);
+
                 calculateGrade(view);
             }
 
@@ -755,10 +761,11 @@ public class Course_1 extends Fragment implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
                 String temp = editable.toString();
                 if(!temp.isEmpty()){
-                    score5Grade = Integer.parseInt(temp);
+                    score6Grade = Integer.parseInt(temp);
                     jsonData.put("SixthScore",Double.toString(score5Grade));
-                }
-                score6 = score6Percentage * (score6Grade/score6OutOf);
+                    score6 = score6Percentage * (score6Grade/score6OutOf);
+                }else score6Grade = 0;
+
                 calculateGrade(view);
 
             }
@@ -775,10 +782,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score6Percentage = Integer.parseInt(temp);
                     jsonData.put("SixthWeightPercentage",Double.toString(score6Percentage));
+                    score6 = score6Percentage * (score6Grade/score6OutOf);
+                }else score6Percentage = 0;
 
-                }
 
-                score6 = score6Percentage * (score6Grade/score6OutOf);
                 calculateGrade(view);
             }
 
@@ -800,9 +807,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 if(!temp.isEmpty()){
                     score6OutOf = Integer.parseInt(temp);
                     jsonData.put("SixthOutOf",Double.toString(score6OutOf));
-                }
+                    score6 = score6Percentage * (score6Grade/score6OutOf);
+                }else score6OutOf  = 0;
 
-                score6 = score6Percentage * (score6Grade/score6OutOf);
+
                 calculateGrade(view);
             }
 
@@ -812,13 +820,12 @@ public class Course_1 extends Fragment implements View.OnClickListener {
             }
         });
 
-
         //save to json
-        fabMain = (FloatingActionButton) view.findViewById(R.id.MainMenu);
-        fabAdd = (FloatingActionButton) view.findViewById(R.id.add);
-        fabRemove = (FloatingActionButton) view.findViewById(R.id.remove);
-        fabClear = (FloatingActionButton) view.findViewById(R.id.clear);
-        fabStore = (FloatingActionButton) view.findViewById(R.id.store);
+        fabMain = (FloatingActionButton) view.findViewById(R.id.MainMenuB);
+        fabAdd = (FloatingActionButton) view.findViewById(R.id.addB);
+        fabRemove = (FloatingActionButton) view.findViewById(R.id.removeB);
+        fabClear = (FloatingActionButton) view.findViewById(R.id.clearB);
+        fabStore = (FloatingActionButton) view.findViewById(R.id.storeB);
 
         fabAdd.setAlpha(0f);
         fabRemove.setAlpha(0f);
@@ -836,16 +843,13 @@ public class Course_1 extends Fragment implements View.OnClickListener {
         fabStore.setOnClickListener(this);
         fabClear.setOnClickListener(this);
 
-        //calculateGrade(view);
-
-
 
 
         //to handle rotation
         if(savedInstanceState != null)
         {
-                String tempName = savedInstanceState.getString(KEY_COURSE_NAME,"");
-                if(!tempName.isEmpty())hide(tempName);
+            String tempName = savedInstanceState.getString(KEY_COURSE_NAME,"");
+            if(!tempName.isEmpty())hide(tempName);
         }
         return view;
     }
@@ -854,16 +858,14 @@ public class Course_1 extends Fragment implements View.OnClickListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof Course1Listener)
+        if(context instanceof Course2Listener)
         {
-            listener =(Course1Listener) context;
+            listener =(Course2Listener) context;
         }else
         {
-            throw new RuntimeException(context.toString()+" must implement Course1Listener");
+            throw new RuntimeException(context.toString()+" must implement Course2Listener");
         }
     }
-
-
 
     private void openMenu()
     {
@@ -883,10 +885,6 @@ public class Course_1 extends Fragment implements View.OnClickListener {
 
     private void closeMenu()
     {
-        text1.setVisibility(View.INVISIBLE);
-        text2.setVisibility(View.INVISIBLE);
-        text3.setVisibility(View.INVISIBLE);
-        text4.setVisibility(View.INVISIBLE);
         isMenuOpen = !isMenuOpen;
 
         fabMain.animate().setInterpolator(interpolator).rotation(0f).setDuration(300).start();
@@ -895,6 +893,10 @@ public class Course_1 extends Fragment implements View.OnClickListener {
         fabAdd.animate().translationY(translationY).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
         fabClear.animate().translationY(translationY).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
         fabRemove.animate().translationY(translationY).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+        text1.setVisibility(View.INVISIBLE);
+        text2.setVisibility(View.INVISIBLE);
+        text3.setVisibility(View.INVISIBLE);
+        text4.setVisibility(View.INVISIBLE);
     }
 
     private void handleClear()
@@ -924,7 +926,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
         SixthWeightPercentage.setText("");
         SixthWeightName.setText("");
         SixthScore.setText("");
-        listener.renameDrawer("Course_1");
+        listener.renameDrawer2("Course_2");
 
         textView.setText("");
         textView.setTextSize(50);
@@ -934,12 +936,34 @@ public class Course_1 extends Fragment implements View.OnClickListener {
         courseName.setVisibility(View.VISIBLE);
         changedName = false;
 
-        //score1 = 0;
-        //score2 = 0;
-        //score3 = 0;
-        //score4 = 0;
-        //score5 = 0;
-        //score6 = 0;
+
+        score1 = 0;
+        score2 = 0;
+        score3 = 0;
+        score4 = 0;
+        score5 = 0;
+        score6 = 0;
+        finalScore = 0;
+        finalWeight = 0;
+        score6Percentage = 0;
+        score1Percentage = 0;
+        score2Percentage = 0;
+        score3Percentage = 0;
+        score4Percentage = 0;
+        score5Percentage = 0;
+        score1OutOf = 0;
+        score2OutOf = 0;
+        score3OutOf = 0;
+        score4OutOf = 0;
+        score5OutOf = 0;
+        score6OutOf = 0;
+        score1Grade = 0;
+        score2Grade = 0;
+        score3Grade = 0;
+        score4Grade = 0;
+        score5Grade = 0;
+        score6Grade = 0;
+
         if(storedData != null)
         {
             Iterator<String> keys = storedData.keys();
@@ -950,7 +974,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                     e.printStackTrace();
                 }
             }
-            listener.onInputCourse1Sent(storedData);
+            listener.onInputCourse2Sent(storedData);
         }
     }
 
@@ -977,7 +1001,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 }
             }
         }
-        listener.onInputCourse1Sent(storedData); //send the json data
+        listener.onInputCourse2Sent(storedData); //send the json data
 
     }
 
@@ -1126,6 +1150,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
     }
 
 
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -1205,13 +1230,11 @@ public class Course_1 extends Fragment implements View.OnClickListener {
             //overallPercentage.setTextColor(Color.rgb(129,198,57));
             jsonData.put("overallPercentage",str);
         }
-
-
     }
 
     private boolean validateName()
     {
-         name = courseName.getEditText().getText().toString().trim();
+        name = courseName.getEditText().getText().toString().trim();
 
         if(name.isEmpty())
         {
@@ -1230,7 +1253,6 @@ public class Course_1 extends Fragment implements View.OnClickListener {
             return true;
         }
     }
-
 
     private void hide(String tempName)
     {
@@ -1256,7 +1278,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
         button.setVisibility(View.INVISIBLE);
         courseName.setVisibility(View.INVISIBLE);
         changedName = true;
-        listener.renameDrawer(name);
+        listener.renameDrawer2(name);
     }
 
 
@@ -1266,34 +1288,34 @@ public class Course_1 extends Fragment implements View.OnClickListener {
     {
         switch (view.getId())
         {
-            case R.id.rename:
+            case R.id.renameB:
                 rename();
                 break;
-            case R.id.store:
+            case R.id.storeB:
                 handleStore();
                 if(isMenuOpen)
                     closeMenu();
                 else openMenu();
                 break;
-            case R.id.clear:
+            case R.id.clearB:
                 handleClear();
                 if(isMenuOpen)
                     closeMenu();
                 else openMenu();
                 break;
-            case R.id.remove:
+            case R.id.removeB:
                 handleRemove();
                 if(isMenuOpen)
                     closeMenu();
                 else openMenu();
                 break;
-            case R.id.add:
+            case R.id.addB:
                 handleAdd();
                 if(isMenuOpen)
                     closeMenu();
                 else openMenu();
                 break;
-            case R.id.MainMenu:
+            case R.id.MainMenuB:
                 if(isMenuOpen)
                     closeMenu();
                 else openMenu();
@@ -1389,9 +1411,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                         break;
                 }
             }
-
         }
-
 
     }
 
@@ -1426,7 +1446,7 @@ public class Course_1 extends Fragment implements View.OnClickListener {
                 button.setVisibility(View.INVISIBLE);
                 courseName.setVisibility(View.INVISIBLE);
                 changedName = true;
-                listener.renameDrawer(temp);
+                listener.renameDrawer2(temp);
             }
             textView.setText(temp);
         }

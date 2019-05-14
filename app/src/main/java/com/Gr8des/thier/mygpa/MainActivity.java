@@ -1,4 +1,4 @@
-package com.example.thier.mygpa;
+package com.Gr8des.thier.mygpa;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
     private Course_3 course3;
     private Course_4 course4;
     private Course_5 course5;
+    private Settings settings;
 
     private int item = 0;
 
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         course3 = new Course_3();
         course4 = new Course_4();
         course5 = new Course_5();
+        settings = new Settings();
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         menuItem4 = menu.findItem(R.id.NavCourse4);
         menuItem5 = menu.findItem(R.id.NavCourse5);
 
+
         jsonData = ReadFromFile(Filename); //get saved data from files
         try {
             handleJson = new HandleJson(this,jsonData); //sending json data to HandleJson
@@ -98,7 +102,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
         if(savedInstanceState == null)
         {
-            //Fragment course1Fragment = new Course_1();
+
+            Fragment course1Fragment = new Course_1();
             Bundle data = new Bundle();
             String temp = handleJson.getJson("course1");
             if(temp != "" && temp != null )
@@ -108,6 +113,10 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             }
             fragmentManager.beginTransaction().replace(R.id.fragment_container,course1).commit();
             navigationView.setCheckedItem(R.id.NavCourse1);
+            this.getWindow().setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+             drawer.openDrawer(Gravity.LEFT);
+
+
         }
 
 
@@ -183,6 +192,10 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                         }
                         fragmentManager.beginTransaction().setCustomAnimations(R.anim.enter_right_left,R.anim.exit_right_left,R.anim.enter_left_right,R.anim.exit_left_right).replace(R.id.fragment_container,course5).commit();
                         break;
+                    case R.id.settings:
+                        int commit = fragmentManager.beginTransaction().setCustomAnimations(R.anim.enter_right_left,R.anim.exit_right_left,R.anim.enter_left_right,R.anim.exit_left_right).replace(R.id.fragment_container,settings).commit();
+                        break;
+
 
                     default:break;
 
@@ -197,6 +210,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         });
 
         OnStartNameDrawer();
+        drawer.openDrawer(Gravity.LEFT);
     }
 
     private void OnStartNameDrawer()
@@ -413,6 +427,7 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 break;
             case R.id.settings:
                 Toast.makeText(this,"settings",Toast.LENGTH_SHORT).show();
+                item = menuItem.getItemId();
                 break;
             case R.id.reset:
                 Toast.makeText(this,"cleared",Toast.LENGTH_SHORT).show();

@@ -1,4 +1,4 @@
-package com.example.thier.mygpa;
+package com.Gr8des.thier.mygpa;
 
 import android.util.Log;
 
